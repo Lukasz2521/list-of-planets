@@ -1,12 +1,17 @@
+import { PlanetDetailsRoutingModule } from './planet-details-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { PlanetDetailsComponent } from './planet-details.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PlanetDetailsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    PlanetDetailsRoutingModule
+  ],
+  exports: [
+    PlanetDetailsRoutingModule
   ]
 })
 export class PlanetDetailsModule { }

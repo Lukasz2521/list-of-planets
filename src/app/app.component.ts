@@ -16,18 +16,18 @@ export class AppComponent implements OnInit {
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private planetSerivce: PlanetsService) {}
+  //constructor(private planetSerivce: PlanetsService) {}
 
   ngOnInit() {
-    this.planetSerivce.get().subscribe((data) => {
-      this.dataSource.data = data.results;
-      this.planetsLength = data.count;
-    })
+    // this.planetSerivce.get().subscribe((data) => {
+    //   this.dataSource.data = data.results;
+    //   this.planetsLength = data.count;
+    // })
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    //this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

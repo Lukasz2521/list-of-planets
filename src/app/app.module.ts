@@ -26,7 +26,8 @@ import {MatInputModule} from '@angular/material/input';
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
-    CoreModule
+    CoreModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
