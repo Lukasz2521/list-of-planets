@@ -16,14 +16,12 @@
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element">
-            <a routerLink="/details">
-                {{ element.name }}
-            </a>
+          {{ element.name }}
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr class="test-row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="row" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr (click)="activatePlanetDetails(row)" class="row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
     <mat-paginator

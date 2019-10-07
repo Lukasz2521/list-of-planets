@@ -2,8 +2,8 @@ import { Api } from './../data/api';
 import { Planet } from './../data/planet';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, of, zip,  } from 'rxjs';
-import { map, expand, mergeAll, share, concatAll, zipAll, combineAll } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { expand } from 'rxjs/operators';
 
 const API_URL = 'https://swapi.co/api/planets/';
 
@@ -11,6 +11,8 @@ const API_URL = 'https://swapi.co/api/planets/';
   providedIn: 'root'
 })
 export class PlanetsService {
+
+  activePlanet = new Subject<Planet>();
 
   constructor(private client: HttpClient) { }
 
@@ -20,6 +22,10 @@ export class PlanetsService {
         return apiData.next != null ? this.getData(apiData.next) : [];
       }),
     );
+  }
+
+  getActivePlanet() {
+    return this.activePlanet.asObservable();
   }
 
   private getData(url): Observable<Api> {

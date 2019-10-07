@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Api } from 'src/app/@core/data/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-of-planets',
@@ -20,7 +21,8 @@ export class ListOfPlanetsComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
-  constructor(private planetSerivce: PlanetsService) {}
+  constructor(private planetSerivce: PlanetsService,
+    private router: Router) { }
 
   ngOnInit() {
     this.dataSource.filterPredicate = (data: Planet, filter: string) => {
@@ -39,5 +41,10 @@ export class ListOfPlanetsComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  activatePlanetDetails(planet) {
+    console.log(planet);
+    this.router.navigateByUrl('/details', { state: { ...planet } });
   }
 }

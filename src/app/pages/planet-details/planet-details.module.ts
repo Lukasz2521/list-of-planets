@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { CoreModule } from 'src/app/@core/@core.module';
 
 @NgModule({
   declarations: [PlanetDetailsComponent],
@@ -15,7 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatGridListModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    CoreModule
   ],
   exports: [
     PlanetDetailsRoutingModule
