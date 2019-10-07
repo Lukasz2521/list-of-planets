@@ -14,7 +14,7 @@ const routes: Routes = [
             .then(mod => mod.ListOfPlanetsModule)
       },
       {
-        path: ':id', loadChildren: () =>
+        path: 'details', loadChildren: () =>
           import('./planet-details/planet-details.module')
             .then(mod => mod.PlanetDetailsModule)
       }
