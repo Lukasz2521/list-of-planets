@@ -1,9 +1,8 @@
 import { PlanetsService } from '../../@core/services/planets.service';
 import { Planet } from '../../@core/data/planet';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { tap } from 'rxjs/operators';
 import { Api } from 'src/app/@core/data/api';
 
 @Component({
@@ -30,8 +29,8 @@ export class ListOfPlanetsComponent implements OnInit {
 
     this.planetSerivce.get().subscribe((data: Api) => {
       this.dataSource.data.push(...data.results);
+      this.dataSource._updateChangeSubscription();
       if (this.initView) {
-        this.planetsLength = data.count;
         this.dataSource.paginator = this.paginator;
         this.initView = false;
       }

@@ -1,1 +1,23 @@
-<p>planet-details works!</p>
+<mat-card>{{ planet.name }}</mat-card>
+<button mat-raised-button routerLink="/">Go back</button>
+
+<mat-grid-list cols="2">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>
+        Rotation period {{ planet.rotation_period }}
+        <mat-divider></mat-divider>
+        Orbital period {{ planet.orbital_period }}
+        <mat-divider></mat-divider>
+        Diameter {{ planet.diameter }}
+        <mat-divider></mat-divider>
+        Climate {{ planet.climate }}
+        <mat-divider></mat-divider>
+        Gravity {{ planet.gravity }}
+        <mat-divider></mat-divider>
+        Terrain {{ planet.terrain }}
+        <mat-divider></mat-divider>
+        Surface water {{ planet.surface_water }}
+        <mat-divider></mat-divider>
+        Population {{ planet.population }}
+  </mat-grid-tile>
+</mat-grid-list>
